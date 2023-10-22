@@ -4,6 +4,13 @@
 
 You know when you want to search for a graphical (GUI) program in your computer and you hit the main menu and start typing its name or visually search for it? This program is the same, but for CLIs! 😎
 
+# Screenshots
+![main](screenshots/main.png)
+![add](screenshots/add.png)
+![search](screenshots/search.png)
+![view](screenshots/view.png)
+
+
 # Features
 
 * Add new CLIs
