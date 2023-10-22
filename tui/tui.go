@@ -26,6 +26,8 @@ func purgeDatabase() {
 				db.DeleteAllRecords()
 			}
 		})
+	purgeConfirmation.SetFocus(1)
+	app.SetFocus(purgeConfirmation)
 }
 
 // Prompts for confirmation before deleting a CLI database record
@@ -45,6 +47,8 @@ func deleteCliById(cli db.Cli) {
 				db.DeleteRecordById(cli.Id)
 			}
 		})
+	deleteConfirmation.SetFocus(1)
+	app.SetFocus(deleteConfirmation)
 }
 
 var app = tview.NewApplication()
@@ -74,7 +78,6 @@ func editCliFormTui(cli db.Cli) {
 	editForm.Clear(true)
 	editForm.SetTitle(fmt.Sprintf("EDIT %s", cli.Name))
 	editForm.SetBorder(true)
-	editForm.SetFocus(0)
 
 	editForm.AddInputField("Name", cli.Name, 30, nil, func(text string) {
 		cli.Name = text
@@ -94,6 +97,8 @@ func editCliFormTui(cli db.Cli) {
 	})
 
 	addMenuButton(editForm)
+	app.SetFocus(editForm)
+	editForm.SetFocus(0)
 }
 
 // Shows a form to create a new CLI
@@ -104,7 +109,6 @@ func addCliFormTui() {
 	addForm.Clear(true)
 	addForm.SetTitle("ADD A NEW CLI")
 	addForm.SetBorder(true)
-	addForm.SetFocus(0)
 
 	addForm.AddInputField("Name", "", 30, nil, func(text string) {
 		cli.Name = text
@@ -126,7 +130,8 @@ func addCliFormTui() {
 	})
 
 	addMenuButton(addForm)
-
+	app.SetFocus(addForm)
+	addForm.SetFocus(0)
 }
 
 // Notifies the user if the fields in a CLI don't match the mininum characters' quantity
@@ -170,6 +175,8 @@ func searchFormTui() {
 	})
 
 	addMenuButton(searchForm)
+	searchForm.SetFocus(0)
+	app.SetFocus(searchForm)
 }
 
 // Shows main menu
