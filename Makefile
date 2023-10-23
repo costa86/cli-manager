@@ -10,7 +10,7 @@ build:
 	@go mod tidy
 
 	@echo "Building for Linux"
-	@GOOS=linux GOARCH=amd64 $(BUILD_CMD_LINUX) -o $(BINARY)-linux.exe
+	@GOOS=linux GOARCH=amd64 $(BUILD_CMD_LINUX) -o $(BINARY)-linux
 
 	@echo "Building for Windows" 
 	@GOOS=windows GOARCH=amd64 $(BUILD_CMD) -o $(BINARY)-windows.exe
